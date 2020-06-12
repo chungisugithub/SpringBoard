@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.luv2code.springboot.cruddemo.dao.EmployeeRepository;
-import com.luv2code.springboot.cruddemo.entiry.Employee;
+import com.luv2code.springboot.thymeleafdemo.dao.EmployeeRepository;
+import com.luv2code.springboot.thymeleafdemo.entiry.Employee;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
