@@ -1,5 +1,6 @@
 package com.luv2code.springboot.thymeleafdemo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ public class EmployeeController {
 
 	private EmployeeService employeeService;
 	
+	@Autowired  // optional
 	public EmployeeController(EmployeeService theEmployeeService) {
 		this.employeeService = theEmployeeService;
 	}
