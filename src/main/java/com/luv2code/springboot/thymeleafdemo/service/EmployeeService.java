@@ -2,7 +2,7 @@ package com.luv2code.springboot.thymeleafdemo.service;
 
 import java.util.List;
 
-import com.luv2code.springboot.cruddemo.entiry.Employee;
+import com.luv2code.springboot.thymeleafdemo.entiry.Employee;
 
 public interface EmployeeService {
 	
