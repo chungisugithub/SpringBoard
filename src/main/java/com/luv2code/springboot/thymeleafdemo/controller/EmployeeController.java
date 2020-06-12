@@ -43,6 +43,6 @@ public class EmployeeController {
 		
 		theModel.addAttribute("employee", theEmployee);
 		
-		return "/employess/employ-form";
+		return "/employees/employee-form";
 	}
 }
