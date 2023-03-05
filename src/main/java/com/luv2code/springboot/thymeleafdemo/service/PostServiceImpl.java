@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.luv2code.springboot.thymeleafdemo.dao.PostRepository;
@@ -20,8 +21,8 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<Post> findAll() {
-		return postRepository.findAllByOrderByRegDateAsc();
+	public List<Post> findAll(final Pageable pageable) {
+		return postRepository.findAllByOrderByRegDateAsc(pageable);
 	}
 
 	@Override

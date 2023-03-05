@@ -3,6 +3,7 @@ package com.luv2code.springboot.thymeleafdemo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +28,10 @@ public class PostController {
 
 	// add mapping for "/list"
 	@GetMapping("/list")
-	public String listPost(Model theModel) {
+	public String listPost(Pageable pageable, Model theModel) {
 		
 		// get posts from db
-		List<Post> thePosts = postService.findAll();
+		List<Post> thePosts = postService.findAll(pageable);
 		
 		// add to the spring model
 		theModel.addAttribute("posts", thePosts);
