@@ -1,0 +1,48 @@
+use spring_board;
+
+create table post(
+num int not null primary key auto_increment,
+writer varchar(10) not null,
+email varchar(30),
+subject varchar(50) not null,
+passwd varchar(12) not null,
+reg_date datetime not null,
+readcount int default 0,
+ref int not null,
+re_step smallint not null,
+re_level smallint not null,
+content text not null,
+ip varchar(20) not null
+);
+
+//임시로 not null 제거
+create table post(
+num int not null primary key auto_increment,
+writer varchar(10) ,
+email varchar(30),
+subject varchar(50) ,
+passwd varchar(12) ,
+reg_date datetime ,
+readcount int default 0,
+ref int ,
+re_step smallint ,
+re_level smallint ,
+content text ,
+ip varchar(20) 
+);
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `employee` VALUES 
+	(1,'David','Adams','david@luv2code.com'),
+	(2,'John','Doe','john@luv2code.com'),
+	(3,'Ajay','Rao','ajay@luv2code.com'),
+	(4,'Mary','Public','mary@luv2code.com'),
+	(5,'Maxwell','Dixon','max@luv2code.com');

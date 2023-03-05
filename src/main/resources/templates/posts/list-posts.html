@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<title>Post Directory</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<h3>Post Directory</h3>
+		<hr>
+
+		<!-- Add a button -->
+		<a th:href="@{/posts/showFormForAdd}"
+			class="btn btn-primary btn-sm mb-3">
+			Add Post
+		</a>
+		
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>내용</th>
+					<th>액션</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tempPost : ${posts}">
+					<td th:text="${tempPost.num}" />
+					<td th:text="${tempPost.subject}" />
+					<td th:text="${tempPost.writer}" />
+					<td th:text="${tempPost.content}" />
+					<td>
+					<a th:href="@{/posts/showFormForUpdate/{num}(num=${tempPost.num})}"
+                class="btn btn-primary">수정</a>
+					<a th:href="@{/posts/deletePost/{num}(num=${tempPost.num})}" 
+					class="btn btn-danger">삭제</a>
+					
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<script>
+	function rowClicked(value) {
+		location.href = "/myurl?param=" + value;
+	}
+	</script>
+</body>
+
+</html>

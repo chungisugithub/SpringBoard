@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<title>Save Post</title>
+</head>
+
+<body>
+
+	<div class="container">
+		
+		<h3>Post Directory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Post</p>
+		
+		<form action="#" th:action="@{/posts/save}"
+						 th:object="${post}" method="POST">
+			<input type="text" th:field="*{subject}"
+					class="form-control mb-4 col-4" placeholder="제목">
+
+			<input type="text" th:field="*{writer}"
+					class="form-control mb-4 col-4" placeholder="작성자">
+
+			<input type="text" th:field="*{content}"
+					class="form-control mb-4 col-4" placeholder="내용">
+		
+			<button type="submit" class="btn btn-info col-2">Save</button>
+			
+		</form>
+	
+		<hr>
+		<a th:href="@{/posts/list}">Back to Post List</a>
+		
+	</div>
+	
+</body>
+
+</html>
