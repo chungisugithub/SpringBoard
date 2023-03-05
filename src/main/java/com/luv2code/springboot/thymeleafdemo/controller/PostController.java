@@ -1,9 +1,15 @@
 package com.luv2code.springboot.thymeleafdemo.controller;
 
+import java.sql.Timestamp;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,12 +34,22 @@ public class PostController {
 
 	// add mapping for "/list"
 	@GetMapping("/list")
-	public String listPost(Pageable pageable, Model theModel) {
+	public String listPost(@PageableDefault(size = 2, sort = "num", direction = Direction.DESC)
+			Pageable pageable, Model theModel) {
 		
 		// get posts from db
-		List<Post> thePosts = postService.findAll(pageable);
+		Page<Post> page = postService.findAll(pageable);
+		
+		List<Post> thePosts = page.getContent();
 		
 		// add to the spring model
+		theModel.addAttribute("currentPage", pageable.getPageNumber()+1);
+		theModel.addAttribute("size", pageable.getPageSize());
+		
+		theModel.addAttribute("totalPages", page.getTotalPages());
+		theModel.addAttribute("totalItems", page.getTotalElements());
+		
+	    
 		theModel.addAttribute("posts", thePosts);
 		
 		return "/posts/list-posts";
@@ -51,7 +67,10 @@ public class PostController {
 	}
 	
 	@PostMapping("/save")
-	public String savePost(@ModelAttribute("post") Post thePost) {
+	public String savePost(@ModelAttribute("post") Post thePost, HttpServletRequest request) {
+		
+		thePost.setReg_date(new Timestamp(System.currentTimeMillis()) );
+		thePost.setIp(request.getRemoteAddr());
 		
 		// save the post
 		postService.save(thePost);

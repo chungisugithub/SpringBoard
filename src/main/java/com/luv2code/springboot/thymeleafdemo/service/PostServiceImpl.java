@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<Post> findAll(final Pageable pageable) {
+	public Page<Post> findAll(final Pageable pageable) {
 		return postRepository.findAllByOrderByRegDateAsc(pageable);
 	}
 

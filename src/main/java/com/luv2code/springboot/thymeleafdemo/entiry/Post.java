@@ -1,5 +1,6 @@
 package com.luv2code.springboot.thymeleafdemo.entiry;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -36,7 +37,7 @@ public class Post {
 
 	@Column(name = "regDate")
 	@CreatedDate
-	private LocalDateTime regDate;
+	private Timestamp regDate;
 
 	@Column(name = "readcount")
 	private int readcount;
@@ -61,7 +62,7 @@ public class Post {
 
 	}
 
-	public Post(int num, String writer, String email, String subject, String passwd, LocalDateTime regDate,
+	public Post(int num, String writer, String email, String subject, String passwd, Timestamp regDate,
 			int readcount, int ref, int re_step, int re_level, String content, String ip) {
 		this.num = num;
 		this.writer = writer;
@@ -77,7 +78,7 @@ public class Post {
 		this.ip = ip;
 	}
 
-	public Post(String writer, String email, String subject, String passwd, LocalDateTime regDate, int readcount,
+	public Post(String writer, String email, String subject, String passwd, Timestamp regDate, int readcount,
 			int ref, int re_step, int re_level, String content, String ip) {
 		this.writer = writer;
 		this.email = email;
@@ -132,12 +133,12 @@ public class Post {
 		this.passwd = passwd;
 	}
 
-	public LocalDateTime getReg_date() {
+	public Timestamp getReg_date() {
 		return regDate;
 	}
 
-	public void setReg_date(LocalDateTime regDate) {
-		this.regDate = regDate;
+	public void setReg_date(Timestamp timestamp) {
+		this.regDate = timestamp;
 	}
 
 	public int getReadcount() {
