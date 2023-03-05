@@ -34,7 +34,8 @@ public class PostController {
 
 	// add mapping for "/list"
 	@GetMapping("/list")
-	public String listPost(@PageableDefault(size = 2, sort = "num", direction = Direction.DESC)
+	public String listPost(@PageableDefault(size=3, sort="num", 
+	direction = Direction.DESC)
 			Pageable pageable, Model theModel) {
 		
 		// get posts from db

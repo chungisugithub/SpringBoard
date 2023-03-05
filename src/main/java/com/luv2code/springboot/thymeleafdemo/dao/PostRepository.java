@@ -13,6 +13,9 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 	// that's it ... no need to write any code LOL!
 	
 	// add a method to sort by last name
-	public Page<Post> findAllByOrderByRegDateAsc(final Pageable pageable);
+	public Page<Post> findAll(final Pageable pageable);
+	
+//	public Page<Post> findAllByOrderByRegDateDesc(final Pageable pageable);
+//	public Page<Post> findAllByOrderByRegDateAsc(final Pageable pageable);
 	
 }

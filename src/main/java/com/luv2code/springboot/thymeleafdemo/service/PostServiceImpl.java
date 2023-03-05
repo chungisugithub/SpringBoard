@@ -23,7 +23,7 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public Page<Post> findAll(final Pageable pageable) {
-		return postRepository.findAllByOrderByRegDateAsc(pageable);
+		return postRepository.findAll(pageable);
 	}
 
 	@Override
