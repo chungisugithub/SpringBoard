@@ -133,12 +133,14 @@ public class Post {
 		this.passwd = passwd;
 	}
 
-	public Timestamp getReg_date() {
+
+
+	public Timestamp getRegDate() {
 		return regDate;
 	}
 
-	public void setReg_date(Timestamp timestamp) {
-		this.regDate = timestamp;
+	public void setRegDate(Timestamp regDate) {
+		this.regDate = regDate;
 	}
 
 	public int getReadcount() {

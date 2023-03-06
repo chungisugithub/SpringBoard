@@ -30,7 +30,9 @@
 					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
-					<th>내용</th>
+					<th>등록일</th>
+					<th>조회</th>
+					<th>첨부</th>
 					<th>액션</th>
 				</tr>
 			</thead>
@@ -39,7 +41,9 @@
 					<td th:text="${tempPost.num}" />
 					<td th:text="${tempPost.subject}" />
 					<td th:text="${tempPost.writer}" />
-					<td th:text="${tempPost.content}" />
+					<td th:text="${#dates.format(tempPost.regDate,'yyyy-MM-dd HH:mm')}" />
+					<td th:text="${tempPost.readcount}" />
+					<td><span class="file_icon">파일다운로드</span></td>
 					<td>
 					<a th:href="@{/posts/showFormForUpdate/{num}(num=${tempPost.num})}"
                 class="btn btn-primary">수정</a>

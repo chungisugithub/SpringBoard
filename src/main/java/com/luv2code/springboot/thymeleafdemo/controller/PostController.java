@@ -70,7 +70,7 @@ public class PostController {
 	@PostMapping("/save")
 	public String savePost(@ModelAttribute("post") Post thePost, HttpServletRequest request) {
 		
-		thePost.setReg_date(new Timestamp(System.currentTimeMillis()) );
+		thePost.setRegDate(new Timestamp(System.currentTimeMillis()) );
 		thePost.setIp(request.getRemoteAddr());
 		
 		// save the post
